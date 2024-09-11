@@ -1,0 +1,33 @@
+<!-- dynamic-form.component.html -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="manufacturer">Manufacturer:</label>
+    <input id="manufacturer" formControlName="manufacturer" />
+    <!-- <div *ngIf="form.get('manufacturer').invalid && form.get('manufacturer').touched">
+      {{ message }}
+    </div> -->
+  </div>
+
+  <div>
+    <label for="country">Country:</label>
+    <select id="country" formControlName="country" (change)="onCountryChange()">
+      <option *ngFor="let country of countries" [value]="country.Code">{{ country.CountryName }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="state">State:</label>
+    <select id="state" formControlName="state">
+      <option *ngFor="let state of states" [value]="state.StateName">{{ state.StateName }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="dealer">Dealer:</label>
+    <select id="dealer" formControlName="dealer">
+      <option *ngFor="let dealer of dealers" [value]="dealer.Desp">{{ dealer.Desp }}</option>
+    </select>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
